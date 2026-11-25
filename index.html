@@ -90,7 +90,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .media img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* grid */
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
 .tile{display:flex;flex-direction:column;gap:8px;padding-bottom:22px}
 .tile .media{aspect-ratio:4/5;overflow:hidden;max-width:100%}
 .tile .media > *{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
@@ -385,7 +385,7 @@ dd{margin:0}
     </div>
     <div class="namebox">
       <h1 class="name"><span class="l1">ethel</span><span class="l2">audouard<span class="dot"></span></span></h1>
-      <div class="portrait"><img src="portrait.jpg" alt="Portrait d'ethel audouard"></div>
+      <div class="portrait"><img src="portrait-2.jpg" alt="Portrait d'ethel audouard"></div>
     </div>
   </section>
 
@@ -407,7 +407,6 @@ dd{margin:0}
     <div>
       <h2>à propos</h2>
       <p class="bio">étudiante en master médias, communication et industrie créative à sciences po paris. <em>Stratégie, concept et direction artistique, du brief jusqu'à l'image.</em></p>
-      <img class="aboutpic" src="portrait-2.jpg" alt="ethel audouard" loading="lazy">
     </div>
     <div class="cols">
       <div>
@@ -684,11 +683,7 @@ grid.innerHTML = PROJECTS.map((p,i)=>`
   <a class="tile" href="#${p.id}">
     <div class="media">${visual(p,p.cover,pad(i))}</div>
     <div class="cap mono"><b>${p.short}</b><span>${p.tags.slice(0,2).join(" · ")}</span></div>
-  </a>`).join("") + `
-  <a class="tile about-tile" href="#index" data-scroll="about">
-    <div class="media"><p>stratégie, concept et direction artistique, du brief jusqu'à l'image.</p><span class="go">à propos</span></div>
-    <div class="cap mono"><b>ethel audouard</b><span>sciences po</span></div>
-  </a>`;
+  </a>`).join("");
 list.innerHTML = PROJECTS.map((p,i)=>`
   <a class="row" href="#${p.id}" data-i="${i}" style="${vars(p)}">
     <span class="n">${pad(i)}</span><span class="sq"></span>
