@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ethel Audouard : stratégie créative et expérience de marque. Étudiante en M2 Communication, médias et industries créatives à Sciences Po, diplômée d'un M2 Design produit (ENSAAMA).">
+<meta property="og:title" content="Ethel Audouard, portfolio">
+<meta property="og:description" content="Stratégie créative et expérience de marque : Louvre, BPM, sense3, Comédie-Française, Alizé (1er prix Beneteau), Barilla.">
+<meta property="og:image" content="img/louvre/cover.jpg">
+<title>ethel audouard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : un index de studio. Nom géant façon couverture, projets en grille ou en liste, fiches projet façon fiche produit. Une seule ambiance claire, assumée. */
+:root{
+  --paper:#F4F4F2;
+  --ink:#121211;
+  --mute:#85857F;
+  --rule:#121211;
+  --soft:#E4E4E0;
+  --dot:#EE6543;
+  --sans:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.45;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{padding-inline:clamp(0px,1.6vw,24px)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--dot);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;line-height:1.35}
+.dot{display:inline-block;width:.17em;height:.17em;border-radius:50%;background:var(--dot);margin-left:.04em;vertical-align:baseline}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:14px;}
+.brand{font-weight:500;font-size:15px;letter-spacing:-.02em}
+.brand .dot{width:.42em;height:.42em;margin-left:.15em}
+.top .mid{color:var(--mute)}
+.top nav{justify-self:end;display:flex;gap:18px}
+.top nav a:hover{color:var(--dot)}
+
+/* hero */
+.hero{padding-block:clamp(40px,9vw,120px) clamp(28px,4vw,56px);display:grid;gap:clamp(20px,3vw,40px)}
+.hero-meta{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-meta p{margin:0;max-width:30ch}
+.hero-meta .r{text-align:right;margin-left:auto}
+.name{margin:0;font-weight:500;font-size:clamp(60px,17.5vw,300px);line-height:.8;letter-spacing:-.065em;}
+.name > span{display:block;animation:rise .9s cubic-bezier(.2,.7,.1,1) both}
+.name .l2{text-align:right;animation-delay:.08s;white-space:nowrap}
+.namebox{position:relative}
+.portrait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(96px,15vw,250px);aspect-ratio:4/5;max-width:100%;background:var(--soft);display:flex;align-items:flex-end;justify-content:center;padding:10px;color:var(--mute);z-index:1;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12);transition:filter .5s}
+.portrait:hover img{filter:none}
+.aboutpic{display:block;width:clamp(140px,16vw,220px);aspect-ratio:4/5;object-fit:cover;margin-top:32px;filter:grayscale(1) contrast(1.12);transition:filter .5s}
+.aboutpic:hover{filter:none}
+@keyframes rise{from{transform:translateY(.18em)}to{transform:none}}
+
+/* works bar */
+.bar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;border-top:2px solid var(--rule);padding-top:14px;margin-bottom:18px}
+.bar h2{margin:0;font-size:clamp(28px,3.6vw,46px);font-weight:500;letter-spacing:-.045em;line-height:1}
+.bar h2 sup{font-size:.36em;letter-spacing:0;margin-left:.15em;vertical-align:top;position:relative;top:.2em}
+.toggle{display:flex;gap:clamp(14px,3vw,40px);font-size:clamp(20px,2.4vw,30px);letter-spacing:-.04em;font-weight:500}
+.toggle button{color:var(--mute);transition:color .2s}
+.toggle button[aria-pressed="true"]{color:var(--ink)}
+.toggle button:hover{color:var(--ink)}
+
+/* placeholder visuel */
+.ph{position:relative;width:100%;height:100%;background:var(--c);color:var(--t);overflow:hidden;display:block}
+.ph-n{position:absolute;left:.08em;bottom:-.17em;font-size:clamp(90px,12vw,200px);font-weight:500;letter-spacing:-.07em;line-height:1}
+.ph-l{position:absolute;right:10px;top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;opacity:.75}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.tile{display:flex;flex-direction:column;gap:8px;padding-bottom:22px}
+.tile .media{aspect-ratio:4/5;overflow:hidden;max-width:100%}
+.tile .media > *{transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.tile:hover .media > *{transform:scale(1.035)}
+.tile .cap{display:flex;justify-content:space-between;gap:10px}
+.tile .cap b{font-family:var(--sans);font-weight:500;font-size:16px;letter-spacing:-.025em;text-transform:none}
+.tile .cap span{color:var(--mute);text-align:right}
+.about-tile .media{background:var(--dot);color:var(--ink);padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+.about-tile .media p{margin:0;font-size:clamp(18px,1.7vw,24px);letter-spacing:-.03em;line-height:1.1;font-weight:500}
+.about-tile .media .go{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid currentColor;align-self:flex-start}
+
+/* strips (accordéon) */
+.strips{display:flex;gap:6px;height:clamp(380px,64vh,660px)}
+.strip{flex:1 1 0;min-width:0;position:relative;overflow:hidden;transition:flex-grow .6s cubic-bezier(.2,.7,.1,1)}
+.strip.on{flex-grow:6}
+.strip .media{position:absolute;inset:0}
+.strip .lab{position:absolute;left:16px;bottom:14px;right:16px;color:var(--t);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;gap:4px}
+.strip.on .lab{opacity:1}
+.strip .lab b{font-size:clamp(20px,2vw,30px);letter-spacing:-.035em;font-weight:500;line-height:1}
+.strip .lab .mono{opacity:.8}
+
+/* list */
+.list{border-bottom:2px solid var(--rule)}
+.row{display:grid;grid-template-columns:3.2rem 1.4rem minmax(0,1fr) auto 7rem;align-items:center;gap:clamp(10px,1.6vw,22px);
+  border-top:2px solid var(--rule);padding:10px 8px;transition:background .15s,color .15s}
+.row:first-child{border-top:0}
+.row .n{font-size:clamp(22px,2.6vw,36px);letter-spacing:-.05em;font-weight:500}
+.row .sq{width:1.1rem;height:1.1rem;background:var(--c)}
+.row .t{font-size:clamp(22px,3.2vw,44px);letter-spacing:-.05em;font-weight:500;line-height:1.05;min-width:0}
+.row .tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.row .cadre{text-align:right;font-size:14px;letter-spacing:-.02em}
+.row:hover,.row:focus-visible{background:var(--c);color:var(--t)}
+.row:hover .sq,.row:focus-visible .sq{background:var(--t)}
+.peek{position:fixed;left:0;top:0;width:220px;aspect-ratio:4/5;pointer-events:none;z-index:20;opacity:0;transition:opacity .15s;}
+.peek.on{opacity:1}
+
+/* à propos */
+.about{border-top:2px solid var(--rule);margin-top:clamp(60px,8vw,120px);padding-block:18px 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,80px)}
+.about h2{margin:0 0 20px;font-size:clamp(28px,3.6vw,46px);font-weight:500;letter-spacing:-.045em;line-height:1}
+.about .bio{font-size:clamp(22px,2.4vw,32px);letter-spacing:-.035em;line-height:1.12;font-weight:500;margin:0;max-width:24ch;text-wrap:balance}
+.about .bio em{font-style:normal;color:var(--mute)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-content:start;padding-top:6px}
+.cols h3{margin:0 0 10px}
+.cols ul{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.3;letter-spacing:-.015em}
+.cols ul + ul{margin-top:12px}
+
+.contact{border-top:2px solid var(--rule);padding-block:18px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end}
+.contact .mail{font-size:clamp(26px,5.4vw,80px);letter-spacing:-.06em;font-weight:500;line-height:1;overflow-wrap:anywhere;user-select:all}
+.contact .side{display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right}
+.copy{border:1px solid var(--ink);border-radius:99px;padding:6px 12px}
+.copy:hover{background:var(--ink);color:var(--paper)}
+footer{display:flex;justify-content:space-between;gap:16px;padding-block:14px 26px;color:var(--mute)}
+
+/* projet */
+.ptop{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:4px 20px}
+.ptop .back:hover{color:var(--dot)}
+.ptop .c{text-align:center}
+.ptop .r{text-align:right;color:var(--mute)}
+.phead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-top:2px solid var(--rule);padding-top:14px}
+.phead h1{margin:0;font-size:clamp(38px,6.4vw,104px);font-weight:500;letter-spacing:-.06em;line-height:.9;max-width:14ch;text-wrap:balance}
+.phead .pnum{font-size:clamp(38px,6.4vw,104px);font-weight:500;letter-spacing:-.06em;line-height:.9;display:flex;align-items:flex-start;gap:.12em}
+.phead .pnum i{width:.36em;height:.36em;background:var(--c);display:inline-block;margin-top:.1em}
+.pbody{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);margin-top:clamp(24px,3vw,44px)}
+.pcover{aspect-ratio:16/9;max-width:100%;overflow:hidden}
+.pcover img{width:100%;height:100%;object-fit:cover;display:block}
+.pinfo{display:flex;flex-direction:column;gap:22px;min-width:0}
+.chip{background:var(--c);color:var(--t);padding:10px 12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lede{margin:0;font-size:clamp(19px,1.8vw,24px);letter-spacing:-.03em;line-height:1.2;font-weight:500}
+dl{margin:0;border-top:1px solid var(--rule)}
+dl div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:12px;padding-block:9px;border-bottom:1px solid var(--rule);font-size:14px}
+dt{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+dd{margin:0}
+.todo{color:var(--mute)}
+.ptext{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px);margin-top:clamp(48px,6vw,90px);border-top:2px solid var(--rule);padding-top:14px}
+.ptext h3{margin:0 0 12px}
+.ptext p{margin:0;max-width:44ch}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.skills span{border:1px solid var(--ink);border-radius:99px;padding:4px 10px;font-size:13px;letter-spacing:-.01em}
+.gal-h{display:flex;justify-content:space-between;margin-top:clamp(48px,6vw,90px);padding-bottom:10px}
+.gallery{display:flex;gap:4px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.gallery .g{flex:0 0 clamp(220px,32vw,460px);aspect-ratio:4/5;scroll-snap-align:start}
+.gallery .g .ph-n{font-size:clamp(60px,7vw,120px)}
+.gallery .g.g-img{flex:0 0 auto;height:clamp(200px,36vw,520px);aspect-ratio:16/9;max-width:92vw}
+.gallery .g.g-img img{width:100%;height:100%;object-fit:cover;display:block}
+.gal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.gi{margin:0;aspect-ratio:16/9;overflow:hidden;max-width:100%;background:var(--soft)}
+.gi.full{grid-column:1/-1}
+.gi .zoom{display:block;width:100%;height:100%;cursor:zoom-in}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.gi .zoom:hover img{transform:scale(1.02)}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(18,18,17,.94);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:zoom-out}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lightbox .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));color:#F4F4F2}
+.pvideo{position:relative;display:block;margin-top:clamp(40px,5vw,70px);aspect-ratio:16/9;max-width:100%;overflow:hidden;background:#121211;color:#F4F4F2}
+.pvideo img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.62);transition:filter .4s,transform .8s cubic-bezier(.2,.7,.1,1)}
+.pvideo:hover img{filter:brightness(.8);transform:scale(1.02)}
+.pvideo .play{position:absolute;left:50%;top:50%;width:clamp(64px,9vw,120px);aspect-ratio:1;border-radius:50%;background:var(--dot);transform:translate(-50%,-50%);transition:transform .3s}
+.pvideo .play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.9em 0 .9em 1.5em;border-color:transparent transparent transparent #F4F4F2;font-size:clamp(11px,1.4vw,18px)}
+.pvideo:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.pvideo .vlab{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:12px;font-size:12px}
+.gal-grid.tall{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gal-grid.tall .gi{aspect-ratio:var(--gr);background:#0b0b0b}
+.gal-grid.contain .gi{background:#fff}
+.gal-grid.contain .gi img{object-fit:contain}
+.gal-grid.contain .zoom:hover img{transform:none}
+.preel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(20px,4vw,60px);align-items:end;margin-top:clamp(40px,5vw,70px)}
+.preel p{margin:0}
+.preel p span{display:block;margin-top:8px;font-family:var(--sans);text-transform:none;letter-spacing:-.03em;font-size:clamp(20px,2.2vw,30px);font-weight:500;line-height:1.1;max-width:16ch}
+.preel video{display:block;height:min(78vh,760px);aspect-ratio:1080/1574;max-width:100%;background:#000;object-fit:cover}
+.pplace{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,3vw,44px);margin-top:clamp(48px,6vw,90px);border-top:2px solid var(--rule);padding-top:14px;align-items:start}
+.pplace h3{margin:0 0 12px}
+.pplace p{margin:0 0 14px;max-width:52ch}
+.pplace p:first-of-type{font-size:clamp(19px,1.8vw,24px);letter-spacing:-.03em;line-height:1.2;font-weight:500}
+.pplace .gi{aspect-ratio:3/2}
+.ptabs{display:flex;gap:clamp(16px,3vw,40px);margin-top:18px;border-bottom:1px solid var(--rule);font-size:clamp(20px,2.4vw,30px);font-family:var(--sans);text-transform:none;letter-spacing:-.04em;font-weight:500}
+.ptabs button{color:var(--mute);padding-bottom:8px;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s}
+.ptabs button[aria-selected="true"]{color:var(--ink);border-color:var(--c)}
+.ptabs button:hover{color:var(--ink)}
+.ptabs sup{font-size:.4em;letter-spacing:0;font-family:var(--mono)}
+.readmore{align-self:flex-start;border-bottom:1px solid currentColor;padding-bottom:2px}
+.readmore:hover{color:var(--dot)}
+.chap{border-top:2px solid var(--rule);margin-top:clamp(40px,5vw,80px);padding-top:14px}
+.chap:first-child{margin-top:clamp(24px,3vw,44px)}
+.chap-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,3vw,44px);align-items:baseline}
+.chap-h h2{margin:0;font-size:clamp(34px,5vw,76px);font-weight:500;letter-spacing:-.055em;line-height:.95;grid-column:2;grid-row:1;text-wrap:balance}
+.chap-h .mono{grid-column:1;grid-row:1}
+.chap-b{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,3vw,44px);margin-top:clamp(20px,3vw,40px);align-items:start}
+.chap-b.noimg{grid-template-columns:minmax(0,1fr)}
+.chap-b.noimg .chap-t{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:0 clamp(20px,3vw,44px);align-items:start}
+.chap-b.noimg .chap-lede{grid-column:1}
+.chap-b.noimg .intents{grid-column:2;grid-row:1}
+.chap-t{min-width:0}
+.chap-t p{margin:0 0 14px;max-width:56ch}
+.chap-lede{font-size:clamp(20px,2vw,28px);letter-spacing:-.035em;line-height:1.15;font-weight:500}
+.chap-key{border-left:3px solid var(--c);padding-left:14px;font-weight:500}
+.chap-i{margin:0;max-width:100%;background:#fff}
+.chap-i img{width:100%;height:auto;display:block;max-height:640px;object-fit:contain}
+.chap-i .zoom{display:block;width:100%}
+.intents{list-style:none;margin:0;padding:0;counter-reset:i;border-top:1px solid var(--rule)}
+.intents li{counter-increment:i;display:grid;grid-template-columns:2.4rem minmax(0,1fr);padding:9px 0;border-bottom:1px solid var(--rule)}
+.intents li::before{content:counter(i,decimal-leading-zero);font-family:var(--mono);font-size:11px;padding-top:3px}
+.cdc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2vw,28px);margin-top:clamp(28px,4vw,56px)}
+.cdc h3{margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.cdc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.35}
+.chap-end{margin-top:clamp(40px,5vw,70px)}
+.chap-end button{border-bottom:1px solid currentColor}
+.chap-end button:hover{color:var(--dot)}
+.pquote{margin:clamp(48px,6vw,90px) 0 0;font-size:clamp(30px,5vw,76px);font-weight:500;letter-spacing:-.055em;line-height:.95;max-width:18ch;text-wrap:balance}
+.roles{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:52ch}
+.roles b{font-weight:600}
+.strip.has-img::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.55));pointer-events:none}
+.strip.has-img .lab{color:#fff;z-index:1}
+.pnav{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--rule);margin-top:clamp(48px,6vw,90px)}
+.pnav a{padding-block:14px 30px;display:flex;flex-direction:column;gap:8px}
+.pnav a + a{text-align:right;border-left:2px solid var(--rule);padding-left:16px}
+.pnav b{font-size:clamp(22px,3vw,40px);font-weight:500;letter-spacing:-.045em;line-height:1}
+.pnav a:hover b{color:var(--dot)}
+
+/* curseur et apparitions */
+.cursor{position:fixed;left:0;top:0;z-index:60;pointer-events:none;opacity:0;transition:opacity .2s}
+.cursor.on{opacity:1}
+.cursor span{position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--dot);display:flex;align-items:center;justify-content:center;color:#F4F4F2;font-family:var(--mono);font-size:0;font-weight:500;text-transform:uppercase;letter-spacing:.05em;transition:width .3s cubic-bezier(.2,.7,.1,1),height .3s cubic-bezier(.2,.7,.1,1),margin .3s cubic-bezier(.2,.7,.1,1),opacity .2s}
+.cursor.link span{width:30px;height:30px;margin:-15px 0 0 -15px;opacity:.55}
+.cursor{mix-blend-mode:normal}
+.cursor em{position:absolute;left:14px;top:-7px;font-style:normal;font-family:var(--mono);font-size:11px;line-height:14px;text-transform:uppercase;letter-spacing:.06em;color:#fff;mix-blend-mode:difference;white-space:nowrap;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .3s cubic-bezier(.2,.7,.1,1)}
+.cursor.label em{opacity:1;transform:none}
+.has-cursor,.has-cursor a,.has-cursor button{cursor:none}
+.has-cursor video{cursor:auto}
+.rv{opacity:0}
+.rv.in{opacity:1;animation:reveal .9s cubic-bezier(.2,.7,.1,1) both;animation-delay:var(--d,0ms)}
+@keyframes reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1}.rv.in{animation:none}}
+
+/* cv */
+.navcv{background:var(--ink);color:var(--paper);padding:2px 8px;border-radius:99px}
+.navcv:hover{background:var(--dot);color:var(--paper)!important}
+.cv-head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(20px,4vw,60px);align-items:end;border-top:2px solid var(--rule);padding-top:14px}
+.cv-head h1{margin:0;font-size:clamp(46px,8vw,128px);font-weight:500;letter-spacing:-.065em;line-height:.85}
+.cv-head h1 .dot{width:.17em;height:.17em}
+.cv-pos{margin:16px 0 0;font-size:clamp(19px,1.9vw,26px);letter-spacing:-.03em;line-height:1.15;font-weight:500;max-width:30ch}
+.cv-target{background:var(--dot);color:#fff;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.cv-target p{margin:0;font-size:clamp(18px,1.7vw,23px);letter-spacing:-.03em;line-height:1.15;font-weight:500}
+.cv-target b{font-weight:600}
+.cv-target .cv-when{font-size:12px;letter-spacing:.05em;border-top:1px solid rgba(255,255,255,.5);padding-top:8px;margin-top:2px}
+.cv-contact{display:flex;flex-wrap:wrap;gap:8px 28px;padding-block:12px;margin-top:18px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.cv-contact span{user-select:all}
+.cv-sec{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(16px,3vw,44px);border-top:2px solid var(--rule);padding-top:12px;margin-top:clamp(28px,3.5vw,48px)}
+.cv-sec h2{margin:4px 0 0}
+.cv-lead{margin:0;font-size:clamp(20px,2vw,28px);letter-spacing:-.035em;line-height:1.15;font-weight:500;max-width:40ch}
+.cv-facts{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cv-facts li{border-top:1px solid var(--rule);padding-top:8px;font-size:14px;line-height:1.3}
+.cv-facts b{display:block;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.045em;font-weight:500;margin-bottom:4px}
+.cv-list{display:grid}
+.cv-item{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:16px;padding-block:12px;border-bottom:1px solid var(--rule)}
+.cv-item:first-child{padding-top:0}
+.cv-date{padding-top:4px}
+.cv-item h3{margin:0;font-size:clamp(18px,1.6vw,21px);letter-spacing:-.03em;font-weight:500;line-height:1.2}
+.cv-item h3 i{font-style:normal;color:var(--mute);font-weight:400;margin-left:6px}
+.cv-item p{margin:6px 0 0;max-width:72ch;font-size:15px}
+.cv-item a{border-bottom:1px solid currentColor;white-space:nowrap}
+.cv-item a:hover{color:var(--dot)}
+.cv-proj{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
+.cv-proj a{display:flex;flex-direction:column;gap:6px;padding:12px 14px;background:var(--soft);transition:background .2s,color .2s}
+.cv-proj a:hover{background:var(--ink);color:var(--paper)}
+.cv-proj b{font-size:20px;letter-spacing:-.035em;font-weight:500}
+.cv-proj span{font-size:14px;line-height:1.35}
+.cv-skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.cv-skills h3{margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.cv-skills p,.cv-last p{margin:0;font-size:15px;line-height:1.4}
+.cv-last{margin-bottom:clamp(40px,6vw,90px)}
+.traits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.traits p{margin:0;font-size:15px;line-height:1.4}
+.traits b{font-weight:600}
+.traits .traits-more{color:var(--mute);margin:0;max-width:46ch}
+.traits-end{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:6px}
+.sitelink{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.sitelink span{font-size:clamp(17px,1.5vw,20px);font-weight:500;letter-spacing:-.025em}
+.sitelink b{font-weight:500;border-bottom:1px solid var(--dot);padding-bottom:2px;overflow-wrap:anywhere}
+.sitelink:hover b{color:var(--dot)}
+.atouts{grid-column:1/-1;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px}
+.atouts li{border-top:1px solid var(--rule);padding-top:8px;font-size:15px;line-height:1.3;font-weight:500;letter-spacing:-.01em}
+.atouts li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--dot);margin-right:8px;vertical-align:2px}
+.traits .traits-one{grid-column:1/-1;font-size:clamp(17px,1.5vw,20px);letter-spacing:-.025em;line-height:1.25;font-weight:500;max-width:60ch}
+
+@media (max-width:980px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row{grid-template-columns:2.6rem 1rem minmax(0,1fr) 5rem}
+  .row .tags{display:none}
+  .about,.pbody{grid-template-columns:minmax(0,1fr)}
+  .ptext{grid-template-columns:minmax(0,1fr)}
+  .cv-head,.cv-sec{grid-template-columns:minmax(0,1fr)}
+  .cv-skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .traits{grid-template-columns:minmax(0,1fr)}
+  .atouts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chap-h,.chap-b,.chap-b.noimg .chap-t{grid-template-columns:minmax(0,1fr)}
+  .chap-h h2,.chap-h .mono,.chap-b.noimg .intents{grid-column:auto;grid-row:auto}
+  .cdc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal-grid.tall{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  .cv-facts,.cv-proj{grid-template-columns:minmax(0,1fr)}
+  .cv-item{grid-template-columns:minmax(0,1fr);gap:4px}
+  .sitelink{align-items:flex-start;text-align:left}
+  .atouts{grid-template-columns:minmax(0,1fr)}
+  .gal-grid,.gal-grid.tall{grid-template-columns:minmax(0,1fr)}
+  .preel{grid-template-columns:minmax(0,1fr)}
+  .preel video{height:auto;width:100%}
+  .top{grid-template-columns:1fr auto}
+  .top .mid{display:none}
+  .top nav{gap:12px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .row{grid-template-columns:2.2rem 0.8rem minmax(0,1fr)}
+  .strips{flex-direction:column;height:auto;gap:4px}
+  .strip,.strip.on{flex:none;height:96px}
+  .strip .lab{opacity:1}
+  .row .cadre{display:none}
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:minmax(0,1fr)}
+  .contact .side{align-items:flex-start;text-align:left}
+  .phead{flex-direction:column-reverse;gap:10px}
+  dl div{grid-template-columns:6.5rem minmax(0,1fr)}
+  .pnav{grid-template-columns:minmax(0,1fr)}
+  .pnav a + a{border-left:0;border-top:2px solid var(--rule);padding-left:0}
+  .hero-meta .r{text-align:left;margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .name span{animation:none}
+  .tile .media > *{transition:none}
+}
+.pvideo-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <a class="brand" href="#index">ethel audouard<span class="dot"></span></a>
+  <span class="mid mono">portfolio 2026 &nbsp;·&nbsp; paris <span id="clock"></span></span>
+  <nav class="mono">
+    <a href="#index" data-scroll="works">projets</a>
+    <a href="#index" data-scroll="about">à propos</a>
+    <a href="#index" data-scroll="contact">contact</a>
+    <a href="#cv" class="navcv">cv</a>
+  </nav>
+</header>
+
+<main id="home" class="wrap">
+  <section class="hero">
+    <div class="hero-meta mono">
+      <p>(portfolio)<br>2024 — 2026<br>paris 11</p>
+      <p class="r">étudiante en master médias, communication &amp; industrie créative — sciences po paris</p>
+    </div>
+    <div class="namebox">
+      <h1 class="name"><span class="l1">ethel</span><span class="l2">audouard<span class="dot"></span></span></h1>
+      <div class="portrait"><img src="portrait.jpg" alt="Portrait d'ethel audouard"></div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="bar">
+      <h2>projets<sup id="count"></sup></h2>
+      <div class="toggle" role="group" aria-label="Affichage des projets">
+        <button type="button" id="v-strips" aria-pressed="false">strips</button>
+        <button type="button" id="v-grid" aria-pressed="true">grid</button>
+        <button type="button" id="v-list" aria-pressed="false">list</button>
+      </div>
+    </div>
+    <div id="strips" class="strips" hidden></div>
+    <div id="grid" class="grid"></div>
+    <div id="list" class="list" hidden></div>
+  </section>
+
+  <section id="about" class="about">
+    <div>
+      <h2>à propos</h2>
+      <p class="bio">étudiante en master médias, communication et industrie créative à sciences po paris. <em>Stratégie, concept et direction artistique, du brief jusqu'à l'image.</em></p>
+      <img class="aboutpic" src="portrait-2.jpg" alt="ethel audouard" loading="lazy">
+    </div>
+    <div class="cols">
+      <div>
+        <h3 class="mono">type</h3>
+        <ul><li>Campagne d'activation</li><li>Planning stratégique</li><li>Stratégie de marque</li><li>Branding</li><li>Design produit</li><li>Direction artistique</li><li>Concept, rédaction</li><li>Photographie</li></ul>
+      </div>
+      <div>
+        <h3 class="mono">skills</h3>
+        <ul><li>IA, curiosité</li><li>Claude Code</li><li>ChatGPT</li><li>Nano Banana</li></ul>
+        <ul><li>Suite Adobe</li><li>Logiciels 3D</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div>
+      <h3 class="mono" style="margin:0 0 12px">contact</h3>
+      <div class="mail" id="mail">ethel.audouard@sciencespo.fr</div>
+    </div>
+    <div class="side mono">
+      <button type="button" class="copy" id="copy">copier l'email</button>
+      <span>paris 11</span>
+      <span>linkedin : ethel audouard</span>
+    </div>
+  </section>
+</main>
+
+<main id="project" class="wrap" hidden></main>
+
+<main id="cvpage" class="wrap cv" hidden>
+  <div class="ptop mono"><a class="back" href="#index">(retour)</a><span class="c">curriculum vitae</span><span class="r">2026</span></div>
+
+  <header class="cv-head">
+    <div>
+      <h1>ethel audouard<span class="dot"></span></h1>
+      <p class="cv-pos">Étudiante en M2 Communication, médias et industries créatives à Sciences Po. Diplômée d'un M2 Design produit (ENSAAMA).</p>
+    </div>
+    <div class="cv-target">
+      <span class="mono">recherche</span>
+      <p>Stage en <b>planning stratégique et créatif</b>, idéation et gestion de projet.</p>
+      <p class="cv-when mono">dès janvier 2027 · 6 mois</p>
+    </div>
+  </header>
+
+  <div class="cv-contact mono">
+    <span>ethel.audouard@sciencespo.fr</span><span>07 85 56 01 53</span><span>linkedin : ethel audouard</span><span>paris 11</span><span>anglais B2 · espagnol B1</span>
+  </div>
+
+  <section class="cv-sec cv-profile">
+    <h2 class="mono">profil</h2>
+    <div>
+      <p class="cv-lead">Designer de formation, aujourd'hui en master Communication, médias et industries créatives à Sciences Po. Je conçois des stratégies créatives ancrées dans l'analyse des usages et des faits de société, de la recommandation jusqu'à l'activation.</p>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="mono">expériences</h2>
+    <div class="cv-list">
+      <article class="cv-item"><span class="cv-date mono">2026</span><div>
+        <h3>Sermant <i>Cofondatrice, studio de branding sonore</i></h3>
+        <p>Né comme label de musique, en pivot vers le branding sonore et le mécénat entre entreprises et artistes. Positionnement stratégique, identité de marque et direction artistique, avec le Centre entrepreneuriat de Sciences Po.</p></div></article>
+      <article class="cv-item"><span class="cv-date mono">2025</span><div>
+        <h3>Nelly Rodi × Armani Beauty <i>Workshop prospectif</i></h3>
+        <p>Recherche prospective autour des codes esthétiques de la marque : narration, recherche créative et direction artistique. Présenté devant la direction de Nelly Rodi et les équipes Armani Beauty (L'Oréal).</p></div></article>
+      <article class="cv-item"><span class="cv-date mono">2024</span><div>
+        <h3>Fondation Beneteau <i>Projet Alizé, cheffe de projet</i></h3>
+        <p>Voilier conçu pour les 140 ans de la marque. Gestion de l'équipe de six, direction artistique et identité conceptuelle. <b>1er prix, aujourd'hui en production.</b> <a href="#beneteau">voir le projet →</a></p></div></article>
+      <article class="cv-item"><span class="cv-date mono">2024</span><div>
+        <h3>Datcha <i>Stage de 5 mois, bureau de création</i></h3>
+        <p>Gamme d'art de la table développée en autonomie : recherche d'artisans, conception, suivi de production, logistique. Concepts et production de vidéos courtes pour les réseaux sociaux.</p></div></article>
+      <article class="cv-item"><span class="cv-date mono">depuis 2021</span><div>
+        <h3>Restauration, Biarritz et Paris <i>Manager de salle, bar à vin</i></h3>
+        <p>Saisons d'été à Biarritz, plus de 200 couverts par service. En parallèle des études, bar à vin à Paris. Gestion d'équipe, gestion des clients, décisions sous pression.</p></div></article>
+    </div>
+  </section>
+
+
+  <section class="cv-sec">
+    <h2 class="mono">formation</h2>
+    <div class="cv-list">
+      <article class="cv-item"><span class="cv-date mono">2025 —</span><div>
+        <h3>Sciences Po Paris <i>Master Communication, médias et industries créatives</i></h3>
+        <p>Planning stratégique, stratégie de marque, identité visuelle, enjeux sociaux et analyse des publics des médias, nouveaux enjeux de la communication. Équipe communication de l'Assocom.</p></div></article>
+      <article class="cv-item"><span class="cv-date mono">2023 — 25</span><div>
+        <h3>ENSAAMA, Paris <i>M2 Design produit</i></h3>
+        <p>Concept et rédaction, direction artistique, conception 3D et suivi de projet, de la recherche de terrain au prototype. Mémoire et projet de diplôme pour la Comédie-Française.</p></div></article>
+      <article class="cv-item"><span class="cv-date mono">2019 — 23</span><div>
+        <h3>Avant <i>DNA Design, HEAR Strasbourg · CPGE Art et design, ENS Paris-Saclay · Bac STD2A, mention bien</i></h3></div></article>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="mono">compétences</h2>
+    <div class="cv-skills">
+      <div><h3 class="mono">stratégie</h3><p>Planning stratégique, analyse des faits sociaux, prospective et tendances, plateforme de marque, plan média, activation</p></div>
+      <div><h3 class="mono">création</h3><p>Concept, rédaction, direction artistique, planches d'ambiance, photo, vidéo, scénographie</p></div>
+      <div><h3 class="mono">pilotage</h3><p>Gestion de projet, management d'équipe, suivi de production et de fabrication</p></div>
+      <div><h3 class="mono">outils</h3><p>Suite Adobe, 3D. IA : Claude Code, Copilot, ChatGPT, Nano Banana, création d'agents</p></div>
+    </div>
+  </section>
+
+  <section class="cv-sec cv-last">
+    <h2 class="mono">atouts</h2>
+    <div class="traits">
+      <ul class="atouts"><li>Cerner vite l'enjeu et repérer les incohérences</li><li>Générer des idées et créer des ponts entre les sujets</li><li>Traduire une idée en une image parlante</li><li>Aider à la décision et faire avancer le groupe</li><li>Curiosité, regard sur les transformations à venir</li><li>Grande capacité d'adaptation</li></ul>
+      <div class="traits-end">
+        <p class="traits-more">Théâtre, photographie. Formation « Profondément collaboratif » sur l'intelligence émotionnelle en équipe.</p>
+        <a class="sitelink" href="#index"><span>De l'observation à l'idée : mes derniers projets.</span><b class="mono">claude.ai/artifact/7D3Fx9UpkDhfHA39Q3vSmF ↗</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap mono"><span>© 2026 ethel audouard</span><span>sciences po paris</span></footer>
+
+<div class="peek" id="peek" aria-hidden="true"></div>
+
+<script>
+// ——— Contenu : une fiche par projet. Pour ajouter un projet, copier une fiche. ———
+// cover : chemin d'une image (ex. "img/louvre.jpg"), sinon un aplat de la couleur du projet.
+const PROJECTS = [
+  { id:"louvre", short:"Louvre", title:"Comment faire revenir les Franciliens au Louvre ?", color:"#7DB3DA",
+    tags:["planning strat","concept / rédac","DA"], cadre:"Sciences Po", year:"2025", team:"Projet individuel", tools:"",
+    type:"Campagne d'activation",
+    lede:"Une campagne d'activation qui transforme les derniers tickets de métro en carton en pass collectors, pour redonner le Louvre aux Franciliens.",
+    quote:"« Dernier ticket, première place au Louvre. »",
+    brief:"Une seule question : « Comment faire venir les Franciliens au Louvre ? » La recherche, l'insight, la cible et l'idée viennent de mon travail.",
+    role:[
+      ["Stratégie.","Seuls 13 % des Franciliens ont visité le Louvre en 2024 : pour eux, c'est le musée des touristes. Cible retenue : ceux qui prennent les transports chaque jour."],
+      ["Concept & rédaction.","Les derniers tickets carton, avant leur disparition en 2026, deviennent une série limitée aux couleurs des œuvres et un pass réservé aux Franciliens. Signature : « Dernier ticket, première place au Louvre. »"],
+      ["Direction artistique.","Des collages qui font entrer les chefs-d'œuvre dans le métro."]
+    ],
+    skills:["planning stratégique","insight","concept","rédaction","direction artistique","collage"],
+    results:"Recommandation stratégique, concept d'activation, signature et déclinaisons (« Ce ticket est une œuvre. », « Le Louvre, priorité aux voisins. »), série de visuels en collage.",
+    cover:"img/louvre/cover.jpg",
+    gallery:["img/louvre/g1.jpg","img/louvre/g2.jpg","img/louvre/g3.jpg","img/louvre/g4.jpg","img/louvre/g5.jpg","img/louvre/g6.jpg","img/louvre/g7.jpg","img/louvre/g8.jpg"] },
+  { id:"bpm", short:"BPM", title:"BPM : Lacoste x Total pour l'inclusion", color:"#E2FA4C",
+    tags:["branding","concept / rédac","planning strat","DA"], cadre:"Sciences Po", year:"2025", team:"Projet de groupe (4 personnes)", tools:"",
+    type:"Création de marque",
+    lede:"Une marque fille de Lacoste et TotalEnergies qui ouvre les stades aux quartiers voisins : une tournée nationale où chaque pas du public produit l'énergie qui fait vivre le lieu.",
+    quote:"« Rendre visible l'énergie collective. »",
+    brief:"Deux marques mères, Lacoste et TotalEnergies. Une marque fille à créer, sur le thème de l'inclusion. L'angle, l'insight et le concept viennent de notre travail.",
+    role:[
+      ["Stratégie & concept.","Jusqu'à 70 % des jeunes des QPV ne sont jamais entrés dans le grand stade voisin. Insight : ne pas y avoir accès, c'est ne pas exister en tant que communauté. BPM transforme six stades en centrales d'énergie collective, grâce à des dalles piézoélectriques."],
+      ["Identité visuelle & merch.","Un symbole de deux cercles (une communauté naît de leur intersection), une palette vert, jaune, rouge héritée des marques mères, et un merch à porter : maillot, écharpe, badges."],
+      ["Rédaction.","Plateforme de marque et signature : « Be Part of the Movement »."],
+      ["Activation & plan média.","Lancement en trois temps au Stade Bauer (dalles dans la rue, ambassadeurs, soirée avec le Red Star), relayé sur Twitch, YouTube, Instagram et dans le BPM Magazine."]
+    ],
+    skills:["création de marque","concept","identité visuelle","merch","rédaction","activation","plan média"],
+    results:"Plateforme de marque, identité visuelle et merch, parcours d'expérience du stade, plan média et plan de lancement.",
+    cover:"img/bpm/cover.jpg", gallery:["img/bpm/g1.jpg","img/bpm/g2.jpg","img/bpm/g3.jpg","img/bpm/g4.jpg","img/bpm/g5.jpg","img/bpm/g6.jpg","img/bpm/g7.jpg","img/bpm/g8.jpg","img/bpm/g9.jpg","img/bpm/g10.jpg","img/bpm/g11.jpg","img/bpm/g12.jpg","img/bpm/g13.jpg","img/bpm/g14.jpg","img/bpm/g15.jpg","img/bpm/g16.jpg","img/bpm/g17.jpg"] },
+  { id:"comedie-francaise", short:"Comédie-Française", title:"Chorégraphie du chantier, Comédie-Française", color:"#D2382C",
+    tags:["recherche","concept","scénographie","DA"], cadre:"ENSAAMA, M2 Design produit, projet de diplôme", year:"2025", team:"Projet individuel", tools:"",
+    type:"Mémoire et projet de diplôme",
+    lede:"Faire du chantier de la Comédie-Française une scène : une bâche expressive animée par le vent, et des cibles au sol qui mettent en scène le regard des passants.",
+    quote:"« Je ne suis pas allée sur le chantier pour construire un objet, mais pour construire un regard. »",
+    galRatio:"2/3", galFit:"contain",
+    story:[
+      {title:"Les chantiers font paysage", kicker:"Enquête",
+       lede:"Au cœur de Paris, les chantiers ne se montrent pas : ils se camouflent.",
+       text:["Devant les monuments historiques, ils s'habillent de bâches, de trompe-l'œil, de façades imprimées. Que cachent ces peaux tendues ? Que disent-elles de notre rapport au chantier, au patrimoine, à la transformation ?",
+             "J'ai mené l'enquête dans le 1er arrondissement, de la Madeleine à l'Opéra, là où le bâti ancien rencontre le chantier moderne et où l'image prend le pas sur la matière. Chaque point rouge est un chantier relevé, avec sa bâche."],
+       key:"La bâche n'est jamais neutre : c'est une interface politique, esthétique et narrative. On peut donc s'en emparer, comme d'un seuil.",
+       img:"img/cf/carte.jpg", alt:"Carte des chantiers relevés dans le 1er arrondissement"},
+      {title:"L'ouvrier comédien", kicker:"Concept",
+       lede:"Soulever, tendre, visser, déplacer : sur le chantier, chaque geste a une force scénique.",
+       text:["En m'immergeant sur le chantier, j'ai été frappée par la dimension chorégraphique des actions quotidiennes. Cette expressivité n'est pas mise en scène, et pourtant elle se donne à voir : rythmes, postures, gestes répétés.",
+             "J'ai voulu offrir un support à cette performativité involontaire, en ouvrant l'espace à des jeux de visibilité, d'apparition et d'interprétation. L'échafaudage devient un cadre de scène, la bâche devient un rideau à la française, et l'ouvrier, sans le savoir, devient comédien."],
+       img:"img/cf/croquis.jpg", alt:"Croquis : rideaux de scène montés sur l'échafaudage"},
+      {title:"Cahier des charges", kicker:"Enjeux",
+       lede:"Rendre le chantier visible, sans l'alourdir ni le figer.",
+       intents:["Provoquer une attention : détourner, éveiller, rendre visible, audible, lisible.",
+                "S'inscrire dans un lieu à forte valeur symbolique.",
+                "Être temporaire : mobile, réversible, sans figer l'espace du chantier.",
+                "Respecter les contraintes de sécurité, de vent, de montage et de démontage.",
+                "Offrir une double lecture : le détail et le geste pour le passant proche, une image d'ensemble à distance.",
+                "Inclure le vivant : ouvriers, passants, spectateurs.",
+                "Créer un dispositif narratif, qui s'active par le vent, la lumière, le regard ou le geste."],
+       cols:[
+         {h:"Constats", li:["Les chantiers sont invisibilisés dans l'espace public parisien.","Les bâches sont des interfaces politiques, esthétiques et narratives.","Les ouvriers agissent dans un décor urbain en tension entre spectacle et effacement."]},
+         {h:"Publics", li:["Usagers de l'espace public et riverains","Ouvriers et professionnels du BTP","Commanditaires publics : Ville de Paris, bailleurs sociaux, promoteurs","Acteurs de la culture et de l'urbanisme temporaire"]},
+         {h:"Dispositif", li:["Bâche en textile technique souple","Modules cousus ou suspendus : formes organiques, voiles, volumes gonflés","Fixations partielles ou mobiles, pour que le vent anime la matière"]},
+         {h:"Contraintes", li:["Fixation sur échafaudage, façade ou clôture","3 m de haut maximum par élément","Tissus ajourés ou découpés, pour résister au vent","Matériaux ignifugés (M1/M2), non coupants","Montage par simple tension, sans grue","Lisible à distance, sans éblouir ni gêner le passage"]},
+         {h:"Débouchés", li:["Installation urbaine pérenne ou temporaire","Prototype à tester sur un chantier réel, avec un acteur local","Outil de communication douce pour les chantiers","Projets culturels liés à la ville en mouvement"]}
+       ]},
+      {title:"Choisir un lieu", kicker:"Site",
+       lede:"Je ne cherchais pas simplement un chantier. Je cherchais un lieu de tension.",
+       text:["Le cahier des charges posé, restait à trouver un lieu réel où ces enjeux prennent sens. Plutôt qu'un site arbitraire, j'ai comparé plusieurs lieux emblématiques de Paris en chantier : Centre Pompidou, Opéra Garnier, Notre-Dame, Louvre, Grand Palais…",
+             "La Comédie-Française s'est imposée : un site en mutation qui raconte à la fois une histoire architecturale, une mémoire culturelle et une présence vivante. Un lieu où le geste de construire fait écho au geste de représenter, et où la bâche peut dialoguer avec le passé, le présent et le public."],
+       img:"img/cf/facade.jpg", alt:"Façade de la Comédie-Française, place Colette"},
+      {title:"Le dispositif", kicker:"Projet",
+       lede:"Une bâche qui joue, et des cibles qui mettent en scène le regard.",
+       text:["La bâche s'inspire du rideau à la française : une trame de modules cousus, en relief et en transparence, que le vent anime. Plis, ombres et profondeur font de la façade en travaux une scène vivante, lisible de loin comme de près.",
+             "« Tracer des regards » : sur scène, les comédiens se repèrent grâce à des marques au sol, invisibles pour le public. J'ai réinterprété ce geste discret en posant des cibles au sol dans l'espace public, dérivées du logo de la maison. Elles guident les passants vers un point de vue précis sur le chantier : eux aussi deviennent mis en scène, acteurs de leur regard."],
+       img:"img/cf/bache-2.jpg", alt:"Prototype de bâche animée par le vent"}
+    ],
+    brief:"Mémoire et projet de diplôme du M2 Design produit. Problématique : comment capturer et révéler la richesse sensible et gestuelle du chantier, afin de la dévoiler ? Tout part d'un œil glissé entre les planches de la palissade du tribunal d'Albi.",
+    role:[
+      ["Recherche.","Mémoire « L'essence du chantier » : immersion sur un chantier Porte de Versailles, entretien avec un ouvrier, enquête sur les bâches du 1er arrondissement, écriture de récits de chantier."],
+      ["Concept.","Le chantier comme scène, l'ouvrier comme comédien. La bâche devient un rideau à la française : plis, reliefs et transparences, animés par le vent."],
+      ["Activation.","« Tracer des regards » : des cibles au sol, inspirées des marques des comédiens et du logo de la maison, guident les passants vers un point de vue sur le chantier. Ils deviennent eux aussi mis en scène."],
+      ["Prototypage.","Bâches et modules textiles testés à l'échelle, en plein air et directement sur l'échafaudage."]
+    ],
+    skills:["recherche","écriture","concept","scénographie","design textile","signalétique"],
+    results:"Un mémoire, un cahier des charges, un dispositif de bâche et de signalétique au sol pour la Comédie-Française, et des prototypes textiles.",
+    cover:"img/cf/cover.jpg", gallery:["img/cf/bache-cible.jpg","img/cf/bache-2.jpg","img/cf/bache-3.jpg","img/cf/proto-echaf.jpg","img/cf/proto-filet.jpg","img/cf/proto-grille.jpg","img/cf/regards.jpg","img/cf/bache-compo.jpg","img/cf/cercles.jpg","img/cf/echafaudage.jpg","img/cf/histoire.jpg"] },
+  { id:"sense3", short:"sense3", title:"sense3", color:"#C02FDA",
+    tags:["event","concept","créa","DA"], cadre:"Sciences Po", year:"2025", team:"Projet de groupe (5 personnes)", tools:"",
+    type:"Concept d'expérience",
+    lede:"Un studio créatif et un cube éphémère où chaque geste sportif devient lumière, son et couleur. Le sport comme expérience sensible, pas comme score.",
+    quote:"« Traduire la performance en émotions sensorielles. »",
+    video:{url:"https://youtu.be/j91JPdDrMq4", poster:"img/sense3/video.jpg", label:"Le trailer"},
+    brief:"Une seule question : « Comment inventer la place du sport dans la société ? » Le parti pris, la cible et le dispositif viennent de notre travail.",
+    role:[
+      ["Stratégie.","Le sport a perdu sa poésie et mesure la valeur des gens. Parti pris : contre la performance sportive, pour la performance sensible. Cible : des urbains sensibles à l'image, qui ne se reconnaissent pas dans la compétition."],
+      ["Concept.","sense3, un cube entre white cube d'art contemporain et terrain de jeu. Lancement devant le Jeu de Paume : un court de tennis blanc où chaque rebond devient lumière, son et couleur, avec des artistes du numérique."],
+      ["Direction artistique.","Le triangle scène, geste, émotion, la signature visuelle du cube et une série d'images « it's rush, it's impact, it's breath… »."]
+    ],
+    skills:["stratégie","concept","direction artistique","expérience","événementiel"],
+    results:"Concept de studio et de dispositif, signature visuelle, lancement au Jeu de Paume, objets culturels (EP et vinyles par événement) et un trailer.",
+    cover:"img/sense3/cover.jpg", gallery:["img/sense3/g1.jpg","img/sense3/g2.jpg","img/sense3/g3.jpg","img/sense3/g4.jpg","img/sense3/g5.jpg","img/sense3/g6.jpg","img/sense3/g7.jpg","img/sense3/g8.jpg","img/sense3/g9.jpg","img/sense3/g10.jpg","img/sense3/g11.jpg","img/sense3/g12.jpg","img/sense3/g13.jpg","img/sense3/g14.jpg"] },
+  { id:"beneteau", short:"Beneteau", title:"Alizé, le voilier de demain pour Beneteau", color:"#24216C",
+    tags:["direction de projet","concept","DA","design produit"], cadre:"ENSAAMA, M2 Design produit", year:"2024", team:"Projet de groupe (6 personnes)", tools:"",
+    type:"Design produit nautique",
+    award:"1er prix, concours Fondation Beneteau x ENSAAMA 2024",
+    status:"Voilier en production",
+    lede:"Pour les 140 ans de Beneteau, un voilier mis en mouvement par le textile : inspiré de la voile, il invite à de nouvelles postures et à de nouvelles façons d'habiter le bateau.",
+    quote:"« Animer le voilier. »",
+    brief:"Pour les 140 ans de Beneteau, concevoir un voilier inspiré de l'héritage de la marque, autour de la voile, du vent, du geste et de la transmission des savoir-faire. Avec la Fondation Beneteau, dans le cadre du M2 Design produit de l'ENSAAMA.",
+    role:[
+      ["Gestion de projet.","Coordination du projet et de l'équipe de six, de la conception à la fabrication."],
+      ["Direction de création.","Définition de l'identité conceptuelle, narrative et esthétique : l'héritage lu par la voile, la transmission et le geste, l'intention « animer le voilier », les moodboards souplesse, manipuler, déployer."],
+      ["Conception.","Participation à la conception et au dessin du voilier : des espaces fluides et modulables pour l'intimité, le partage et la contemplation."]
+    ],
+    skills:["direction de création","gestion de projet","concept","récit","moodboard","design d'usage","design produit"],
+    results:"1er prix du concours, et le voilier est aujourd'hui en production.",
+    cover:"img/beneteau/cover.jpg", gallery:["img/beneteau/g1.jpg","img/beneteau/g2.jpg","img/beneteau/g3.jpg","img/beneteau/g4.jpg","img/beneteau/g5.jpg","img/beneteau/g18.jpg","img/beneteau/g6.jpg","img/beneteau/g7.jpg","img/beneteau/g8.jpg","img/beneteau/g9.jpg","img/beneteau/g10.jpg","img/beneteau/g11.jpg","img/beneteau/g12.jpg","img/beneteau/g13.jpg","img/beneteau/g14.jpg","img/beneteau/g15.jpg","img/beneteau/g16.jpg","img/beneteau/g17.jpg","img/beneteau/g19.jpg"] },
+  { id:"barilla", short:"Barilla", title:"Barilla, Collana", color:"#B83A43",
+    tags:["branding","concept / rédac","DA"], cadre:"Projet personnel", year:"", team:"", tools:"",
+    type:"Branding, objet de marque",
+    lede:"Un collier de penne en métal, vendu dans un coffret aux codes Barilla : la pâte quitte l'assiette pour devenir un bijou de marque.",
+    quote:"« Barilla, more than just pasta. »",
+    reel:{src:"img/barilla/reel.mp4", poster:"img/barilla/reel-poster.jpg", caption:"Collier de pâtes, qui ne rouille pas."},
+    galRatio:"2/3",
+    brief:"Faire consommer les pâtes autrement : nul besoin de les cuire ni de les déguster, il suffit de les porter. Par son matériau, la valeur de l'objet change, et avec elle la valeur qu'on lui attribue.",
+    role:[
+      ["Concept.","Détourner l'objet le plus quotidien de la marque : la penne devient un bijou, en métal, qui ne rouille pas."],
+      ["Branding & packaging.","« Collana n. », un coffret qui reprend le paquet Barilla, avec un sticker attitré et numéroté."],
+      ["Fabrication & image.","Moulage, fonte et découpe laser, puis une série de scans et un reel pour donner à l'objet son univers."]
+    ],
+    skills:["concept","branding","packaging","direction artistique","fabrication","vidéo"],
+    results:"Un collier, son coffret numéroté, une série de scans et un reel.",
+    cover:"img/barilla/cover.jpg", gallery:["img/barilla/scan.jpg","img/barilla/vrac.jpg","img/barilla/coffret.jpg","img/barilla/mur.jpg","img/barilla/boite.jpg","img/barilla/stickers.jpg","img/barilla/fonte.jpg","img/barilla/laser.jpg","img/barilla/moules1.jpg","img/barilla/bande.jpg","img/barilla/pieces.jpg","img/barilla/cote.jpg"] },
+];
+
+const TODO = '<span class="todo">à compléter depuis la présentation</span>';
+const pad = i => String(i+1).padStart(2,"0");
+function textOn(hex){
+  const n=parseInt(hex.slice(1),16), r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  const L=(0.2126*r+0.7152*g+0.0722*b)/255;
+  return L>0.55 ? "#121211" : "#F4F4F2";
+}
+const vars = p => `--c:${p.color};--t:${textOn(p.color)}`;
+function visual(p, src, i, label){
+  if(src) return `<img src="${src}" alt="${p.title}" loading="lazy">`;
+  return `<span class="ph" style="${vars(p)}"><span class="ph-n">${i}</span><span class="ph-l">${label||"visuel à venir"}</span></span>`;
+}
+const val = v => v ? v : TODO;
+
+// ——— Accueil ———
+const grid=document.getElementById("grid"), list=document.getElementById("list");
+document.getElementById("count").textContent="("+pad(PROJECTS.length-1)+")";
+grid.innerHTML = PROJECTS.map((p,i)=>`
+  <a class="tile" href="#${p.id}">
+    <div class="media">${visual(p,p.cover,pad(i))}</div>
+    <div class="cap mono"><b>${p.short}</b><span>${p.tags.slice(0,2).join(" · ")}</span></div>
+  </a>`).join("") + `
+  <a class="tile about-tile" href="#index" data-scroll="about">
+    <div class="media"><p>stratégie, concept et direction artistique, du brief jusqu'à l'image.</p><span class="go">à propos</span></div>
+    <div class="cap mono"><b>ethel audouard</b><span>sciences po</span></div>
+  </a>`;
+list.innerHTML = PROJECTS.map((p,i)=>`
+  <a class="row" href="#${p.id}" data-i="${i}" style="${vars(p)}">
+    <span class="n">${pad(i)}</span><span class="sq"></span>
+    <span class="t">${p.title}</span>
+    <span class="tags mono">${p.tags.map(t=>`<span>${t}</span>`).join("")}</span>
+    <span class="cadre">${p.cadre}</span>
+  </a>`).join("");
+
+// Grid / List
+const strips=document.getElementById("strips");
+strips.innerHTML = PROJECTS.map((p,i)=>`
+  <a class="strip${i===0?" on":""}${p.cover?" has-img":""}" href="#${p.id}" style="${vars(p)}">
+    <div class="media">${visual(p,p.cover,pad(i))}</div>
+    <span class="lab"><b>${p.short}</b><span class="mono">${p.tags[0]}, ${p.cadre}</span></span>
+  </a>`).join("");
+function openStrip(s){ if(!s||s.classList.contains("on")) return; strips.querySelectorAll(".strip.on").forEach(x=>x.classList.remove("on")); s.classList.add("on"); }
+strips.addEventListener("mouseover",e=>openStrip(e.target.closest(".strip")));
+strips.addEventListener("focusin",e=>openStrip(e.target.closest(".strip")));
+const VIEWS={strips,grid,list};
+function setView(v){
+  for(const k in VIEWS){ VIEWS[k].hidden = k!==v; document.getElementById("v-"+k).setAttribute("aria-pressed", k===v); }
+  try{localStorage.setItem("view",v)}catch(e){}
+}
+for(const k in VIEWS) document.getElementById("v-"+k).onclick=()=>setView(k);
+try{ const v=localStorage.getItem("view"); if(VIEWS[v]) setView(v) }catch(e){}
+
+// Aperçu qui suit le curseur dans la liste
+const peek=document.getElementById("peek");
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+  list.addEventListener("mouseover",e=>{
+    const r=e.target.closest(".row"); if(!r) return;
+    const i=+r.dataset.i, p=PROJECTS[i];
+    peek.innerHTML=visual(p,p.cover,pad(i)); peek.classList.add("on");
+  });
+  list.addEventListener("mouseleave",()=>peek.classList.remove("on"));
+  list.addEventListener("mousemove",e=>{
+    peek.style.transform=`translate(${Math.min(e.clientX+24, innerWidth-244)}px, ${e.clientY-140}px)`;
+  });
+}
+
+// ——— Page projet ———
+const home=document.getElementById("home"), proj=document.getElementById("project");
+function renderProject(i){
+  const p=PROJECTS[i], prev=PROJECTS[(i-1+PROJECTS.length)%PROJECTS.length], next=PROJECTS[(i+1)%PROJECTS.length];
+  const gal = (p.gallery.length ? p.gallery : [null,null,null,null]);
+  proj.innerHTML=`
+  <div class="ptop mono"><a class="back" href="#index">(retour)</a><span class="c">${pad(i)} / ${pad(PROJECTS.length-1)}</span><span class="r">${p.cadre}</span></div>
+  <div class="phead" style="${vars(p)}">
+    <h1>${p.title}</h1>
+    <span class="pnum"><i></i>${pad(i)}</span>
+  </div>
+  ${p.story ? `<div class="ptabs mono" role="tablist" style="${vars(p)}">
+      <button type="button" role="tab" data-tab="apercu" aria-selected="true">aperçu</button>
+      <button type="button" role="tab" data-tab="projet" aria-selected="false">le projet en détail <sup>(${pad(p.story.length-1)})</sup></button>
+    </div>` : ""}
+  <div class="tab-apercu">
+  <div class="pbody">
+    <div class="pcover">${visual(p,p.cover,pad(i),"visuel de couverture")}</div>
+    <aside class="pinfo">
+      <div class="chip mono" style="${vars(p)}"><span>${p.tags.join(" · ")}</span><span>${p.cadre}</span></div>
+      <p class="lede">${val(p.lede)}</p>
+      ${p.story ? `<button type="button" class="readmore mono" data-tab="projet">lire le projet en détail →</button>` : ""}
+      <dl>
+        ${p.year ? `<div><dt>Année</dt><dd>${p.year}</dd></div>` : ""}
+        <div><dt>Cadre</dt><dd>${p.cadre}</dd></div>
+        ${p.type ? `<div><dt>Type</dt><dd>${p.type}</dd></div>` : ""}
+        ${p.award ? `<div><dt>Distinction</dt><dd>${p.award}</dd></div>` : ""}
+        ${p.status ? `<div><dt>Aujourd'hui</dt><dd>${p.status}</dd></div>` : ""}
+        ${p.team ? `<div><dt>Équipe</dt><dd>${p.team}</dd></div>` : ""}
+        ${p.tools ? `<div><dt>Outils</dt><dd>${p.tools}</dd></div>` : ""}
+      </dl>
+    </aside>
+  </div>
+  ${p.quote ? `<blockquote class="pquote">${p.quote}</blockquote>` : ""}
+  ${p.video ? `<div class="pvideo pvideo-embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/${p.video.url.split("/").pop()}?rel=0" title="${p.video.label}" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>` : ""}
+  ${p.reel ? `<div class="preel">
+      <p class="mono">le reel<br><span>${p.reel.caption}</span></p>
+      <video src="${p.reel.src}" poster="${p.reel.poster}" autoplay muted loop playsinline controls></video>
+    </div>` : ""}
+  <div class="ptext">
+    <div><h3 class="mono">le brief</h3><p>${val(p.brief)}</p></div>
+    <div><h3 class="mono">mon rôle &amp; missions</h3>${Array.isArray(p.role) ? `<ul class="roles">${p.role.map(r=>`<li><b>${r[0]}</b> ${r[1]}</li>`).join("")}</ul>` : `<p>${val(p.role)}</p>`}
+      <div class="skills">${(p.skills.length?p.skills:p.tags).map(s=>`<span>${s}</span>`).join("")}</div></div>
+    <div><h3 class="mono">résultats &amp; livrables</h3><p>${val(p.results)}</p></div>
+  </div>
+  <div class="gal-h mono"><span>le projet en images</span><span>(${pad(gal.length-1)})</span></div>
+  <div class="gal-grid${p.galRatio?" tall":""}${p.galFit==="contain"?" contain":""}" style="${p.galRatio?`--gr:${p.galRatio}`:""}">${gal.map((src,k)=>{
+    const full = !p.galRatio && (k===0 || (k===gal.length-1 && (gal.length-1)%2===1));
+    return `<figure class="gi${full?" full":""}">${src ? `<button type="button" class="zoom" data-src="${src}" aria-label="Agrandir l'image ${k+1}">${visual(p,src,"")}</button>` : visual(p,null,pad(i)+"."+(k+1))}</figure>`;
+  }).join("")}</div>
+  </div>
+  ${p.story ? `<div class="tab-projet" hidden style="${vars(p)}">${p.story.map((c,k)=>`
+    <section class="chap">
+      <header class="chap-h"><span class="mono">${pad(k)} / ${c.kicker}</span><h2>${c.title}</h2></header>
+      <div class="chap-b${c.img?"":" noimg"}">
+        <div class="chap-t">
+          <p class="chap-lede">${c.lede}</p>
+          ${(c.text||[]).map(t=>`<p>${t}</p>`).join("")}
+          ${c.key?`<p class="chap-key">${c.key}</p>`:""}
+          ${c.intents?`<ol class="intents">${c.intents.map(t=>`<li>${t}</li>`).join("")}</ol>`:""}
+        </div>
+        ${c.img?`<figure class="chap-i"><button type="button" class="zoom" data-src="${c.img}" aria-label="Agrandir l'image"><img src="${c.img}" alt="${c.alt||""}" loading="lazy"></button></figure>`:""}
+      </div>
+      ${c.cols?`<div class="cdc">${c.cols.map(col=>`<div><h3 class="mono">${col.h}</h3><ul>${col.li.map(l=>`<li>${l}</li>`).join("")}</ul></div>`).join("")}</div>`:""}
+    </section>`).join("")}
+    <p class="chap-end mono"><button type="button" data-tab="apercu">← revenir à l'aperçu et aux images</button></p>
+  </div>` : ""}
+  <nav class="pnav">
+    <a href="#${prev.id}"><span class="mono">← projet précédent</span><b>${prev.short}</b></a>
+    <a href="#${next.id}"><span class="mono">projet suivant →</span><b>${next.short}</b></a>
+  </nav>`;
+}
+
+// Agrandir une image de la galerie
+const lb=document.createElement("div"); lb.className="lightbox"; lb.hidden=true;
+lb.innerHTML='<img alt=""><button type="button" class="x mono">(fermer)</button>';
+document.body.appendChild(lb);
+const closeLb=()=>{lb.hidden=true};
+lb.addEventListener("click",closeLb);
+addEventListener("keydown",e=>{ if(e.key==="Escape") closeLb() });
+document.addEventListener("click",e=>{
+  const z=e.target.closest(".zoom"); if(!z) return;
+  lb.querySelector("img").src=z.dataset.src; lb.hidden=false;
+});
+
+// Apparition au défilement
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const RV=".cv-sec,.chap,.tile,.row,.strip,.gi,.ptext > div,.pquote,.pvideo,.preel,.pcover,.pinfo,.about > *,.contact,.pnav,.gal-h";
+const io=(RM||!("IntersectionObserver" in window))?null:new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+}),{rootMargin:"0px 0px -6% 0px"});
+function reveal(root){
+  if(!io) return;
+  root.querySelectorAll(RV).forEach(el=>{
+    if(el.classList.contains("in")) return;
+    const r=el.getBoundingClientRect();
+    if(r.height && r.top>innerHeight*0.92){
+      const sib=[...el.parentNode.children].indexOf(el);
+      el.style.setProperty("--d",(sib%3)*80+"ms");
+      el.classList.add("rv"); io.observe(el);
+    }
+  });
+}
+
+// Curseur : le point orange
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+  const cur=document.createElement("div"); cur.className="cursor"; cur.setAttribute("aria-hidden","true"); cur.innerHTML="<span></span><em></em>";
+  document.body.appendChild(cur); document.documentElement.classList.add("has-cursor");
+  const lab=cur.querySelector("em"); let x=-99,y=-99,cx=x,cy=y;
+  addEventListener("mousemove",e=>{ x=e.clientX; y=e.clientY; cur.classList.add("on"); });
+  document.addEventListener("mouseleave",()=>cur.classList.remove("on"));
+  (function loop(){ const k=RM?1:.28; cx+=(x-cx)*k; cy+=(y-cy)*k; cur.style.transform=`translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
+  document.addEventListener("mouseover",e=>{
+    const t=e.target;
+    if(t.closest("video")){ cur.classList.remove("on"); return; }
+    const big=t.closest(".tile,.row,.strip,.zoom,.pvideo,.lightbox");
+    const txt=!big?"":big.classList.contains("zoom")?"agrandir":big.classList.contains("pvideo")?"lire":big.classList.contains("lightbox")?"fermer":"voir";
+    lab.textContent=txt;
+    cur.classList.toggle("label",!!txt);
+    cur.classList.toggle("link",!txt && !!t.closest("a,button"));
+  });
+}
+
+// Onglets de la page projet
+document.addEventListener("click",e=>{
+  const t=e.target.closest("[data-tab]"); if(!t || proj.hidden) return;
+  const v=t.dataset.tab;
+  proj.querySelectorAll(".ptabs [data-tab]").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===v));
+  const a=proj.querySelector(".tab-apercu"), pr=proj.querySelector(".tab-projet");
+  if(a) a.hidden = v!=="apercu"; if(pr) pr.hidden = v!=="projet";
+  const tabs=proj.querySelector(".ptabs");
+  if(tabs) window.scrollTo({top:tabs.getBoundingClientRect().top+scrollY-70,behavior:"instant"});
+  requestAnimationFrame(()=>reveal(proj));
+});
+
+// ——— Navigation par ancre (#louvre, #bpm…) ———
+let homeY=0;
+const cvp=document.getElementById("cvpage");
+function route(){
+  const id=location.hash.slice(1), i=PROJECTS.findIndex(p=>p.id===id);
+  const away=!proj.hidden || !cvp.hidden;
+  if(id==="cv"){
+    if(!home.hidden) homeY=scrollY;
+    home.hidden=true; proj.hidden=true; cvp.hidden=false;
+    window.scrollTo({top:0,behavior:"instant"});
+    requestAnimationFrame(()=>reveal(cvp));
+    document.title="CV — ethel audouard";
+  }else if(i>=0){
+    if(!home.hidden) homeY=scrollY;
+    cvp.hidden=true;
+    renderProject(i); home.hidden=true; proj.hidden=false;
+    window.scrollTo({top:0,behavior:"instant"});
+    requestAnimationFrame(()=>reveal(proj));
+    document.title=PROJECTS[i].short+" — ethel audouard";
+  }else{
+    proj.hidden=true; cvp.hidden=true; home.hidden=false; document.title="ethel audouard";
+    if(away) window.scrollTo({top:homeY,behavior:"instant"});
+  }
+}
+addEventListener("hashchange",route); route();
+requestAnimationFrame(()=>reveal(home));
+
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-scroll]"); if(!a) return;
+  const target=document.getElementById(a.dataset.scroll);
+  setTimeout(()=>target && target.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}),0);
+});
+
+// Heure de Paris dans l'en-tête
+const clock=document.getElementById("clock");
+function tick(){ try{ clock.textContent=new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Paris",hour:"2-digit",minute:"2-digit"}).format(new Date()) }catch(e){} }
+tick(); setInterval(tick,15000);
+
+// Copier l'email
+document.getElementById("copy").addEventListener("click",function(){
+  const b=this, t=document.getElementById("mail").textContent;
+  const done=()=>{b.textContent="email copié";setTimeout(()=>b.textContent="copier l'email",1800)};
+  try{ navigator.clipboard.writeText(t).then(done,()=>{selectMail()}) }catch(e){ selectMail() }
+  function selectMail(){const r=document.createRange();r.selectNodeContents(document.getElementById("mail"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="sélectionné, faites ⌘C"}
+});
+</script>
+</body>
+</html>
